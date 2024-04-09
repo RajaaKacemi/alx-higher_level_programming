@@ -1,1 +1,1 @@
-0x13. JavaScript - Objects, Scopes and Closures
+# Javascript - Objects, Scopes and and Closures
