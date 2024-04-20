@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
 """
-    A script that lists all states from the database hbtn_0e_0_usa
-    starting with capital letter N
+    A script that lists all cities from the database hbtn_0e_0_usa
     Username, password and database names are given as user args
 """
 
@@ -20,9 +19,10 @@ if __name__ == '__main__':
 
     cursor = db.cursor()
 
-    sql = """ SELECT * FROM states
-          WHERE name LIKE BINARY '{}'
-          ORDER BY id ASC """.format(sys.argv[4])
+    sql = """SELECT c.id, c.name, s.name
+          FROM states s, cities c
+          WHERE c.state_id = s.id
+          ORDER BY c.id ASC"""
 
     cursor.execute(sql)
 
