@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-All states via SQLAlchemy
+Adds the State object “Louisiana”
 '''
 
 
@@ -16,6 +16,8 @@ if __name__ == '__main__':
     InstanceSession = sessionmaker(bind=engine)
     session = InstanceSession()
 
-    for state in session.query(State).order_by(State.id):
-        print('{}: {}'.format(state.id, state.name))
+    new_state = State(name='Louisiana')
+    session.add(new_state)
+    session.commit()
+    print(new_state.id)
     session.close()
